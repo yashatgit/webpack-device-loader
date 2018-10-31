@@ -1,14 +1,22 @@
 # webpack-device-loader
 Dynamic file bundling for webpack
 
-If you are building out code for multiple devices/os in your codebase then this plugin can help you build and serve the bundles based on the required type.
-
-Your folder can contain the files for specific types like this:
+If you are building code for multiple devices types/os in your codebase then this plugin can help you build and serve the bundles based on the required type.
 
 
-### Code Usage
+## Code Usage
 
-Consider a component class where you need to render the device specific components.
+Consider a component class where you need to render the device specific components. You would likely create a folder with the following files:
+```
+|module
+| - app.js
+| - component.device.js
+| - component.tv.js
+| - component.watch.js
+| - component.web.js
+```
+
+A sample App would be something on the lines of:
 ```
 import React from "react";
 import Component from "./component.device";
@@ -24,8 +32,7 @@ class App extends React.Component {
 }
 ```
 
-Based on the passed device types, the following will be the content of the rndered App.
-
+Based on the passed device types, the following will be the content of the rendered App.
 ```
 //device = web
 <div class="app"><div className="device--web">Web!</div></div>
@@ -36,9 +43,10 @@ Based on the passed device types, the following will be the content of the rnder
 //device = watch
 <div class="app"><div className="device--watch">Watch!</div></div>
 ```
+Check the [examples folder](https://github.com/yashatgit/webpack-device-loader/tree/master/example) for a sample.
 
 
-### Installation
+## Installation
 
 #### Add `device-loader` in your webpack plugin list
 
